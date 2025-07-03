@@ -1,0 +1,16 @@
+[
+  {
+    "nama": "Apotek Sehat",
+    "alamat": "Jl. Ahmad Yani No.12, Balikpapan",
+    "telepon": "081234567890",
+    "lat": -1.2634,
+    "lng": 116.8310
+  },
+  {
+    "nama": "Apotek Keluarga",
+    "alamat": "Jl. MT Haryono No.100, Balikpapan",
+    "telepon": "081298765432",
+    "lat": -1.2700,
+    "lng": 116.8400
+  }
+]

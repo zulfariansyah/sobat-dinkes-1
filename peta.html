@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Peta Apotek - Sobat Dinkes</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <h1>Peta Lokasi Apotek</h1>
+  <div id="map" style="height: 500px;"></div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([-1.2654, 116.8312], 12); // Koordinat Balikpapan
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    fetch('apotek.json')
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(apotek => {
+          if (apotek.lat && apotek.lng) {
+            L.marker([apotek.lat, apotek.lng])
+              .addTo(map)
+              .bindPopup(`<b>${apotek.nama}</b><br>${apotek.alamat}`);
+          }
+        });
+      });
+  </script>
+  <nav>
+    <a href="index.html">Beranda</a> |
+    <a href="apotek.html">Daftar Apotek</a> |
+    <a href="peta.html">Peta</a>
+  </nav>
+</body>
+</html>
